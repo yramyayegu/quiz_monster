@@ -34,7 +34,7 @@ function App() {
       setStart(true)
     }   
       return(
-          <div className={classes.root}>
+          <div className={classes.root} >
           <Grid container spacing={2}>
               <Grid item xs={4}></Grid>
               <Grid item xs={4}>

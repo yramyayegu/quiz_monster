@@ -25,62 +25,47 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     fontSize:'1.6em',
     fontWeight: 300,
+  },
+  btn : {
+    fontSize : '1rem',
+    
   }
  
 }));
 
-function Question(props)
-{
-  const classes = useStyles();
-  const [value, setValue] = React.useState('');
-  const [error, setError] = React.useState(false);
-  const [helperText, setHelperText] = React.useState('');
-
-  const handleRadioChange = (event) => {
-    setValue(event.target.value);
-    setHelperText(' ');
-    setError(false);
+ function Question(props)
+ {
+   const classes = useStyles();
+   const [value, setValue] = React.useState('');
+   const [Sco, setSco] = React.useState(0);
+   const handleRadioChange = (event) => {
+   setValue(event.target.value); 
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (value === props.answer) {
-      setHelperText('You got it!');
-      props.result();
-      setError(false);
-
-    } else if (value === '') {
-      setHelperText('Please select an option.');
-      setError(true);
-      
-    } else {
-      setHelperText('Sorry, wrong answer!');
-      setError(true);
-    }
+    if (value === props.answer) { props.result(); }
+    props.progressbtn();
   };
+
   
     return(
 
       <div className={classes.root}>
-          <h1 className={classes.title}>{props.topic}</h1>         
-          <form onSubmit={handleSubmit}>
-            <FormControl component="fieldset" error={error} className={classes.formControl}>
-              <FormLabel component="legend"><h1 className="que">{props.title}</h1></FormLabel>
-              
+        <h1 className={classes.title}>{props.topic}</h1>         
+          <form>
+            <FormControl component="fieldset"  className={classes.formControl}>
+              <FormLabel component="legend"><h1 className="que">{props.title}</h1></FormLabel>      
               <RadioGroup aria-label="quiz" name="quiz" className="que" value={value} onChange={handleRadioChange}>
-              {props.options.map((item) => 
-                <FormControlLabel value={item} className="que" control={<Radio />} label={item} />
-              )}  
+                {props.options.map((item) => 
+                  <FormControlLabel value={item} className="que" control={<Radio />} label={item} />
+                )}  
               </RadioGroup>
-             
-              <Button type="submit" variant="outlined" color="primary" className={classes.button}>
-                Check Answer
-              </Button>
+              <span><Button variant="contained" color="secondary" className={classes.btn} onClick = {handleSubmit}  >
+              {( props.progress == (100-props.Average)) ?  'Submit'  : 'Next' } </Button></span>
             </FormControl>
           </form>
-          <FormHelperText>{helperText}</FormHelperText>
-    </div>
-      
+    </div>      
     )
 }
 export default Question;
