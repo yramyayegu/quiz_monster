@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
@@ -76,7 +75,7 @@ export default function StartQuiz() {
     })
   
     const nextProgress  = (()=>{
-        (progress == (100-Average)) ? setProgress(100) : setProgress(progress+Average);
+        (progress === (100-Average)) ? setProgress(100) : setProgress(progress+Average);
         setQuestoinOptions(Question_options[++i])
         setQuestoinTopic(Question_topic[i])
         setQuestoinTitle(Question_title[i])
@@ -91,7 +90,7 @@ export default function StartQuiz() {
           <Grid item xs={8}>
                 <LinearProgressWithLabel value={progress} />
              
-                {(progress == 100) ?  <Score score={TotalScore}/> :  <Question topic={QuestoinTopic}  title={QuestoinTitle} options={QuestoinOptions} answer={QuestionAnswer} result={TotalResult} progress={progress} progressbtn={nextProgress} Average={Average}  />}               
+                {(progress === 100) ?  <Score score={TotalScore}/> :  <Question topic={QuestoinTopic}  title={QuestoinTitle} options={QuestoinOptions} answer={QuestionAnswer} result={TotalResult} progress={progress} progressbtn={nextProgress} Average={Average}  />}               
           </Grid>
           <Grid item xs={2}></Grid>
       </Grid>

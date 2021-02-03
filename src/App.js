@@ -47,7 +47,7 @@ function App() {
           <Grid container spacing={2}>
               <Grid item xs={4}></Grid>
               <Grid item xs={4}>
-                  <h1 className="Start-title"></h1>
+                  <h1 className="Start-title">Welcome</h1>
                   <Button variant="contained" color="secondaryy" className={classes.btn} onClick={startGame}>  Start Game</Button>
               </Grid>
               <Grid item xs={4}></Grid>

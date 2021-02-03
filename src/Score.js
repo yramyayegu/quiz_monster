@@ -1,11 +1,4 @@
-import React,{useState} from 'react';
-import Button from '@material-ui/core/Button';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import LinearProgress from '@material-ui/core/LinearProgress';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Question from './Question';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import './App.css';
 
