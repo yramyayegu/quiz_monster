@@ -2,7 +2,7 @@
   "name": "simple-reactjs-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "",
+  "homepage": "yramyayegu.github.io/quiz_monster/",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "axios": "^0.18.0",
