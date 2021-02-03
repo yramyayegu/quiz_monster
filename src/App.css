@@ -8,14 +8,43 @@
 
 .App-header {
   background-color: rgb(255, 255, 255);
-  border-bottom: 2px solid #ebebeb;
-  
-  
+  border-bottom: 2px solid #ebebeb; 
+}
+.makeStyles-btn-2 {
+  color: #000 !important;
+  background-color: #d7be0b !important;
 }
 .App-footer {
   background-color: rgb(255, 255, 255);
   border-top: 2px solid #ebebeb;
   
+}
+.MuiButton-containedSecondary:hover {
+  background-color: #135675 !important;
+}
+
+
+.MuiTypography-colorTextSecondary {
+  color: rgba(0, 0, 0, 0.74) !important;
+  font-weight: bolder !important;
+}
+.MuiButton-containedSecondary {
+  color: #fff;
+  background-color: #135675 !important;
+}
+.percentage{
+  color: #fff;
+}
+.makeStyles-root-7 {
+  background-color: #ffffffd6;
+padding: 2%;
+margin-top: 2%;
+}
+.makeStyles-title-8 {
+  color: #135675 !important;
+}
+.MuiGrid-spacing-xs-2 {
+  margin: 0 !important;
 }
 .btn{
   font-size: 14px !important;
@@ -37,6 +66,11 @@
   color : #000;
   padding: 5%;
   font-size:1.2em;
+}
+.score{
+  background-color: #ffffffd6;
+padding: 2%;
+margin-top: 2%;
 }
 .App-intro {
   font-size: large;

@@ -39,7 +39,7 @@ function App() {
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
   
-          backgroundImage: `url(${"https://image.freepik.com/free-vector/cute-blue-monster-cartoon-hand-pointing-up-illustration-merchandising_158784-639.jpg"})`
+          backgroundImage: `url(${"https://www.bergerpaints.com/colour-magazine/Upload/Quiz/Banner/quiz-bnr-nov19.jpg"})`
       }
   };
       return(

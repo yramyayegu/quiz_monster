@@ -8,6 +8,7 @@ import Box from '@material-ui/core/Box';
 import Question from './Question';
 import Score from './Score';
 import Grid from '@material-ui/core/Grid';
+import './App.css';
 
 function LinearProgressWithLabel(props) {
   return (
@@ -17,7 +18,7 @@ function LinearProgressWithLabel(props) {
       </Box>
       <Box minWidth={35}>
         <Typography variant="body2" color="textSecondary">
-            {`${Math.round(props.value,)}%`}
+            <p className="percentage">{`${Math.round(props.value,)}%`}</p>
         </Typography>
       </Box>
     </Box>
@@ -34,25 +35,28 @@ LinearProgressWithLabel.propTypes = {
 
 const useStyles = makeStyles({
   root: {
-    height: 470,
+    height: 520,
     width: '100%',
     padding : '15px',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundImage: `url(${"https://www.bergerpaints.com/colour-magazine/Upload/Quiz/Banner/quiz-bnr-nov19.jpg"})`
   },
  
 });
+
 let i = 0;
 let Result = 0;
-
-const Question_topic = ['Programming language ','Javascript ','Ajax','React','Angalur']
-const Question_title = ['What is programming language? ','Javascript ','Ajax','React','Angalur']
+const Question_topic = ['React','React','React','React','React']
+const Question_title = ['Everything in React is a_______? ','How many elements does a react component return?','What is a react.js in MVC?','Who Develop React.js? ',' Which of the following is the correct data flow sequence of flux concept? ']
 const Question_options = [
-    ['opt1','opt2','opt3','opt4'],
-    ['opt11','opt22','opt33','opt44'],
-    ['opt111','opt222','opt333','opt444'],
-    ['opt1111','opt2222','opt3333','opt4444'],
-    ['opt11111','opt22222','opt33333','opt44444'],
+    ['Module','Component','Package','Class'],
+    ['2Elements','1Element','Multiple Elements','None of These'],
+    ['Middleware','Controller','Model','Router'],
+    ['Apple','Facebook','Twitter','Google'],
+    ['Dispatcher->Action->Store->View','Action->Dispatcher->View->Store','Action->Dispatcher->Store->View','Action->Store->Dispatcher->View'],
 ]
-const Question_answer = ['opt1','opt11','opt111','opt1111','opt11111'];
+const Question_answer = ['Component','Multiple Elements','Controller','Facebook','Action->Dispatcher->View->Store'];
 const Average = Math.ceil(100/Question_topic.length); 
 
 export default function StartQuiz() {

@@ -20,7 +20,6 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     color: '#3f51b5',
   },
-
   opt : {
     textAlign: 'left',
     fontSize:'1.6em',
@@ -28,7 +27,6 @@ const useStyles = makeStyles(theme => ({
   },
   btn : {
     fontSize : '1rem',
-    
   }
  
 }));
@@ -55,7 +53,7 @@ const useStyles = makeStyles(theme => ({
         <h1 className={classes.title}>{props.topic}</h1>         
           <form>
             <FormControl component="fieldset"  className={classes.formControl}>
-              <FormLabel component="legend"><h1 className="que">{props.title}</h1></FormLabel>      
+              <FormLabel component="legend"><span className="que">{props.title}</span></FormLabel>      
               <RadioGroup aria-label="quiz" name="quiz" className="que" value={value} onChange={handleRadioChange}>
                 {props.options.map((item) => 
                   <FormControlLabel value={item} className="que" control={<Radio />} label={item} />
