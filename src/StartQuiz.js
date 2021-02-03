@@ -9,6 +9,15 @@ import Score from './Score';
 import Grid from '@material-ui/core/Grid';
 import './App.css';
 
+
+/*
+  After clicking on start button StartQuiz method will start every variable will be initillized.
+  Here Questions,options and answers took statically in arrays.
+  initillized variables, result and variable methods are sent to Question component.
+*/
+
+
+// LinearProgressWithLabel function is for Progress bar 
 function LinearProgressWithLabel(props) {
   return (
     <Box display="flex" alignItems="center">
@@ -41,7 +50,6 @@ const useStyles = makeStyles({
     backgroundRepeat: 'no-repeat',
     backgroundImage: `url(${"https://www.bergerpaints.com/colour-magazine/Upload/Quiz/Banner/quiz-bnr-nov19.jpg"})`
   },
- 
 });
 
 let i = 0;
@@ -66,14 +74,20 @@ export default function StartQuiz() {
     const [QuestionAnswer,setQuestionAnswer] = useState(Question_answer[i])
     const [progress, setProgress] = React.useState(0);
     const [TotalScore, setScore] = React.useState(0);
-  
-  
+    /*  TotalResult method will add 20 points for every correct answer
+        Result variable will store all points
+        TotalResult is triggred from Question Component
+    */
     const TotalResult  = (()=>{
       Result = Result+20;
       setScore(Result)
       console.log(Result)
     })
-  
+  /*
+    when nextProgress is treggred from question component 2 things will happen
+    - progress bar will be incresed (According to avarage of no.of Questions)
+    - Question, option and answer variables will set again
+  */
     const nextProgress  = (()=>{
         (progress === (100-Average)) ? setProgress(100) : setProgress(progress+Average);
         setQuestoinOptions(Question_options[++i])
@@ -89,7 +103,9 @@ export default function StartQuiz() {
           <Grid item xs={2}></Grid>
           <Grid item xs={8}>
                 <LinearProgressWithLabel value={progress} />
-             
+             {/* 
+                once progress reach 100 score component will apper
+             */}
                 {(progress === 100) ?  <Score score={TotalScore}/> :  <Question topic={QuestoinTopic}  title={QuestoinTitle} options={QuestoinOptions} answer={QuestionAnswer} result={TotalResult} progress={progress} progressbtn={nextProgress} Average={Average}  />}               
           </Grid>
           <Grid item xs={2}></Grid>

@@ -34,11 +34,13 @@ const useStyles = makeStyles(theme => ({
  {
    const classes = useStyles();
    const [value, setValue] = React.useState('');
-   const handleRadioChange = (event) => {
-   setValue(event.target.value); 
-  };
-
-  const handleSubmit = (event) => {
+   // Event handeling to set value of selected option
+   const handleRadioChange = (event) => {    setValue(event.target.value);    };
+   
+   /* Event handeling to submit value and trigger progressbtn method in StartQuiz Component
+      to reset all variables
+   */
+   const handleSubmit = (event) => {
     event.preventDefault();
     if (value === props.answer) { props.result(); }
     props.progressbtn();
@@ -48,15 +50,24 @@ const useStyles = makeStyles(theme => ({
     return(
 
       <div className={classes.root}>
+         {/* To Display topic of Question*/}
         <h1 className={classes.title}>{props.topic}</h1>         
           <form>
             <FormControl component="fieldset"  className={classes.formControl}>
-              <FormLabel component="legend"><span className="que">{props.title}</span></FormLabel>      
+
+              {/* To Display title of Question*/}
+              <FormLabel component="legend"><span className="que">{props.title}</span></FormLabel>     
+
+              {/* Map To Display Options of Question*/} 
               <RadioGroup aria-label="quiz" name="quiz" className="que" value={value} onChange={handleRadioChange}>
                 {props.options.map((item) => 
                   <FormControlLabel value={item} className="que" control={<Radio />} label={item} />
                 )}  
               </RadioGroup>
+
+              {/* Submit Button in case of last Question value will be Submit 
+                  and value Next otherwise */} 
+
               <span><Button variant="contained" color="secondary" className={classes.btn} onClick = {handleSubmit}  >
               {( props.progress === (100-props.Average)) ?  'Submit'  : 'Next' } </Button></span>
             </FormControl>
