@@ -33,13 +33,22 @@ function App() {
     const startGame = () => {
       setStart(true)
     }   
+    const styles = {
+      paperContainer: {
+        
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  
+          backgroundImage: `url(${"https://image.freepik.com/free-vector/cute-blue-monster-cartoon-hand-pointing-up-illustration-merchandising_158784-639.jpg"})`
+      }
+  };
       return(
-          <div className={classes.root} >
+          <div className={classes.root} style={styles.paperContainer}>
           <Grid container spacing={2}>
               <Grid item xs={4}></Grid>
               <Grid item xs={4}>
-                  <h1 className="Start-title">Welcome</h1>
-                  <Button variant="contained" color="secondary" className={classes.btn} onClick={startGame}>  Start Game</Button>
+                  <h1 className="Start-title"></h1>
+                  <Button variant="contained" color="secondaryy" className={classes.btn} onClick={startGame}>  Start Game</Button>
               </Grid>
               <Grid item xs={4}></Grid>
           </Grid>

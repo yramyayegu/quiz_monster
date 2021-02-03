@@ -19,6 +19,10 @@
 }
 .btn{
   font-size: 14px !important;
+  position: relative !important;
+  margin-top: -44% !important;
+  margin-left: 83% !important;
+  width: 30% !important;
 }
 .App-title {
   color : #000;
